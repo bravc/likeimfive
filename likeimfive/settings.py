@@ -25,7 +25,7 @@ SECRET_KEY = '3yj=xfp)ah$h=^jg9)e%^!-6-77zqgrmj!0u8snflmcpy5u566'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'camlap', 'localhost']
 
 
 # Application definition
