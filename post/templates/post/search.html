@@ -1,0 +1,26 @@
+{% extends 'post/layout.html' %} {% block styles %}
+<link rel="stylesheet" type="text/html" href="../../static/css/search.css" /> {% endblock %} {% block content %}
+
+<!-- <div class="container"> -->
+<div class="row">
+    <h2>What do you want to know?</h2>
+    <br/>
+    <div id="custom-search-input">
+        <form method="POST" action="/post/search" class="input-group col-md-12">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="Search" class="search-query form-control" />
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </form>
+    </div>
+</div>
+
+{% if results %}
+<h1>{{results}}</h1>
+{% endif %}
+<!-- </div> -->
+
+{% endblock %}
