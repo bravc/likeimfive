@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from datetime import datetime
 
 
 # Create your models here.
@@ -8,7 +8,7 @@ import datetime
 class Author(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    date_joined = models.DateField(default=datetime.date.today)
+    date_joined = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
         return self.name
@@ -28,7 +28,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=50)
     description = models.TextField()
-    created_at = models.DateField(default=datetime.date.today)
+    created_at = models.DateTimeField(default=datetime.now, blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
 
@@ -41,7 +41,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    posted_at = models.DateField(default=datetime.date.today)
+    posted_at = models.DateTimeField(default=datetime.now, blank=True)
     description = models.TextField()
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 

@@ -7,6 +7,7 @@ urlpatterns = [
     url('all', views.all, name='all'),
     path('search', views.search, name="post"),
     path('search/<int:id', views.search, name="post"),
-    # path('comment', views.newComment, name="comment")
+    path('<int:post_id>', views.post, name="post"),
+    path('comment', views.newComment, name="comment")
 
 ]

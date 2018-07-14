@@ -39,6 +39,8 @@
                 <h5 class="card-header">Leave a Comment:</h5>
                 <div class="card-body">
                     <form method="POST" action="/post/comment">
+                        {% csrf_token %}
+
                         <div class="form-group">
                             <textarea class="form-control" rows="3" name="comment"></textarea>
                         </div>
@@ -74,7 +76,7 @@
 
             <!-- Categories Widget -->
             <div class="card my-4">
-                <h5 class="card-header">Categories</h5>
+                <h5 class="card-header">Tags</h5>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-6">
