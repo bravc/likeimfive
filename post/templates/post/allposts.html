@@ -1,5 +1,12 @@
-{% extends 'post/layout.html' %} {% block content %} {% if posts %} {% for post in posts %}
+{% extends 'post/layout.html' %} 
+
+{% block content %} 
+{% if posts %} 
+{% for post in posts %}
 
 <h1>{{post.title}}</h1>
+<a href={{ post.getUrl }} > sd</a>
 
-{% endfor %} {% endif %} {% endblock %}
+{% endfor %} 
+{% endif %} 
+{% endblock %}

@@ -35,6 +35,10 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def getUrl(self):
+        return f"/post/{self.id}"
+
+
     def __unicode__(self):
         return
 
