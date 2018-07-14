@@ -11,13 +11,15 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv(), override=True)
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -28,7 +30,7 @@ SECRET_KEY = '3yj=xfp)ah$h=^jg9)e%^!-6-77zqgrmj!0u8snflmcpy5u566'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'camlap', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', 'camlap', 'localhost', 'likeimfive.herokuapp.com', 'likeimfive.org']
 
 
 # Application definition
@@ -84,14 +86,7 @@ WSGI_APPLICATION = 'likeimfive.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'likeimfive',
-        'USER': os.getenv("USER"),
-        'PASSWORD': os.getenv("PASSWORD"),
-        'HOST': os.getenv("HOST"),
-        'PORT': os.getenv("PORT"),
-    }
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
@@ -133,4 +128,4 @@ LOGIN_REDIRECT_URL = '/'
 
 STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

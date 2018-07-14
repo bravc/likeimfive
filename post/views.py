@@ -28,7 +28,6 @@ def search(request, id=''):
 
 def all(request):
     posts = Post.objects.all()
-    print(posts)
     return render(request, 'post/allposts.html', {'posts': posts})
 
 
